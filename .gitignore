@@ -76,3 +76,7 @@ build/
 # Claude Code (personal)
 CLAUDE.local.md
 .claude/settings.local.json
+
+# Python
+.venv/
+__pycache__/
