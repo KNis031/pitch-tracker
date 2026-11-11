@@ -1,6 +1,5 @@
-# YIN library target goes here once there is source to build, e.g.:
-#   add_library(pitch_core src/yin.cpp)
-#   target_include_directories(pitch_core PUBLIC include)
+add_library(pitch_core src/yin.cpp)
+target_include_directories(pitch_core PUBLIC include)
 
 if(BUILD_TESTING)
     include(FetchContent)
@@ -12,10 +11,9 @@ if(BUILD_TESTING)
     )
     FetchContent_MakeAvailable(Catch2)
 
-    add_executable(core_tests tests/test_placeholder.cpp)
+    add_executable(core_tests tests/test_yin.cpp)
     # Catch2WithMain supplies main(), so test files only contain TEST_CASEs.
-    target_link_libraries(core_tests PRIVATE Catch2::Catch2WithMain)
-    # target_link_libraries(core_tests PRIVATE pitch_core)
+    target_link_libraries(core_tests PRIVATE pitch_core Catch2::Catch2WithMain)
 
     # Registers each TEST_CASE as its own ctest test.
     list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
